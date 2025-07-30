@@ -1,0 +1,55 @@
+@page
+@model HelloWorldRazor.Pages.Assets.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Asset</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Asset.Make)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Asset.Make)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Asset.Model)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Asset.Model)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Asset.OdometerKm)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Asset.OdometerKm)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Asset.Year)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Asset.Year)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Asset.State)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Asset.State)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Asset.NumberPlate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Asset.NumberPlate)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Asset.Id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

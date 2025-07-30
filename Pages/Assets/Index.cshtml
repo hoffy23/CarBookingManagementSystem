@@ -1,0 +1,67 @@
+@page
+@model HelloWorldRazor.Pages.Assets.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Asset[0].Make)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Asset[0].Model)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Asset[0].OdometerKm)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Asset[0].Year)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Asset[0].State)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Asset[0].NumberPlate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Asset)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Make)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Model)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OdometerKm)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Year)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.State)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NumberPlate)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

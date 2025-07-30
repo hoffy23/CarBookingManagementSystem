@@ -1,7 +1,21 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using HelloWorldRazor.Data;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+if (builder.Environment.IsDevelopment())
+{
+    builder.Services.AddDbContext<HelloWorldRazorContext>(options =>
+        options.UseSqlite(builder.Configuration.GetConnectionString("HelloWorldRazorContext")));
+}
+else
+{
+    builder.Services.AddDbContext<HelloWorldRazorContext>(options =>
+        options.UseSqlServer(builder.Configuration.GetConnectionString("ProductionRazorContext")));
+}
+
 
 var app = builder.Build();
 
@@ -9,7 +23,6 @@ var app = builder.Build();
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
