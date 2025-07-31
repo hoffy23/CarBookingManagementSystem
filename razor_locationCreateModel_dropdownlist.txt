@@ -1,0 +1,16 @@
+@model HelloWorldRazor.Pages.Locations.CreateModel
+// ...existing code...
+
+<div class="form-group">
+    <label asp-for="Location.Country" class="control-label"></label>
+    <select asp-for="Location.Country" asp-items="Html.GetEnumSelectList<Country>()" class="form-control">
+        <option value="">-- Select Country --</option>
+    </select>
+    <span asp-validation-for="Location.Country" class="text-danger"></span>
+</div>
+
+
+// Model Location-> Pages Pages/Locations/ CURP
+dotnet aspnet-codegenerator razorpage -m Booking
+ -dc HelloWorldRazor.Data.HelloWorldRazorContext -udl -outDir Pages/Bookings
+ --referenceScriptLibraries --databaseProvider sqlite

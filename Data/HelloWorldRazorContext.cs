@@ -15,5 +15,8 @@ namespace HelloWorldRazor.Data
         }
 
         public DbSet<HelloWorldRazor.Models.Asset> Asset { get; set; } = default!;
+        public DbSet<HelloWorldRazor.Models.Booking> Booking { get; set; } = default!;
+        public DbSet<HelloWorldRazor.Models.Customer> Customer { get; set; } = default!;
+        public DbSet<HelloWorldRazor.Models.Location> Location { get; set; } = default!;
     }
 }
