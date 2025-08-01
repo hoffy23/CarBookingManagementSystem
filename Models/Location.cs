@@ -10,8 +10,11 @@ namespace HelloWorldRazor.Models
     {
         [Key]
         public int Id { get; set; }
+
         [Required]
+        [StringLength(100)]
         public required string Name { get; set; }
+
         [Required]
         public required string Address { get; set; }
         [Required]

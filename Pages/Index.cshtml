@@ -1,8 +1,33 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home";
+    ViewData["Title"] = "Home Page - Car Rental Management Application";
+    ViewData["Description"] = "Welcome to the Car Rental Management Application.";
+    ViewData["Keywords"] = "Manage bookings, customers, locations, and vehicles car rental around Australia";
 }
 
 <h1>@ViewData["Title"]</h1>
-<p>Welcome to my Razor Pages application, with c# and dot NET in July 2025</p>
+<p>@ViewData["Description"]</p>
+<p>@ViewData["Keywords"]</p>
+
+<h4>Bookings creation car rental</h4>
+<a asp-page="/Bookings/Create">Create Booking</a>
+<hr />
+<h4>Booking Management car rental</h4>
+<a asp-page="/Bookings/Index">View Bookings</a>
+<hr />
+<h4>Customers creation car rental</h4>
+<a asp-page="/Customers/Create">Create Customer</a>
+<h4>Customer Management car rental</h4>
+<a asp-page="/Customers/Index">View Customers</a>
+<hr />
+<h4>Locations creation car rental</h4>
+<a asp-page="/Locations/Create">Create Location</a>
+<h4>Location Management car rental</h4>
+<a asp-page="/Locations/Index">View Locations</a>
+<hr />
+<h4>Vehicles creation car rental</h4>
+<a asp-page="/Vehicles/Create">Create Vehicle</a>
+<h4>Vehicle Management car rental</h4>
+<a asp-page="/Vehicles/Index">View Vehicles</a>
+<hr />

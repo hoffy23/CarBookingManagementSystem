@@ -1,43 +1,50 @@
 @page
 @model HelloWorldRazor.Pages.Bookings.CreateModel
 
-        @{
-        ViewData["Title"] = "Create";
-        }
-        
-        <h1>Create</h1>
-        
-    <h4>Booking</h4>
-    <hr />
-    <div class="row">
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Booking</h4>
+<hr />
+<div class="row">
     <div class="col-md-4">
-    <form method="post">
-    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Booking.CustomerId" class="control-label"></label>
-                <select asp-for="Booking.CustomerId" class ="form-control" asp-items="ViewBag.CustomerId"></select>
+                <select asp-for="Booking.CustomerId" class="form-control" asp-items="ViewBag.CustomerId"></select>
             </div>
             <div class="form-group">
                 <label asp-for="Booking.AssetId" class="control-label"></label>
-                <select asp-for="Booking.AssetId" class ="form-control" asp-items="ViewBag.AssetId"></select>
+                <select asp-for="Booking.AssetId" class="form-control" asp-items="ViewBag.AssetId"></select>
             </div>
             <div class="form-group">
-                <label asp-for="Booking.LocationId" class="control-label"></label>
-                <select asp-for="Booking.LocationId" class ="form-control" asp-items="ViewBag.LocationId"></select>
+                <label asp-for="Booking.LocationId" class="control-label">Rental Location</label>
+                <select asp-for="Booking.LocationId" class="form-control" asp-items="ViewBag.LocationId"></select>
             </div>
             <div class="form-group">
-                <label asp-for="Booking.CheckOut" class="control-label"></label>
+                <label asp-for="Booking.CheckOut" class="control-label">Check Out Date & Time</label>
                 <input asp-for="Booking.CheckOut" class="form-control" />
                 <span asp-validation-for="Booking.CheckOut" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Booking.DueIn" class="control-label"></label>
+                <label asp-for="Booking.DueIn" class="control-label">Return Date & Time</label>
                 <input asp-for="Booking.DueIn" class="form-control" />
                 <span asp-validation-for="Booking.DueIn" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Booking.Status" class="control-label"></label>
-                <select asp-for="Booking.Status" class="form-control"></select>
+                <span class="text-danger">*</span>
+                <label asp-for="Booking.Status" class="control-label">Booking Status</label>
+                <select asp-for="Booking.Status" class="form-control">
+                    <option value="Pending">Pending</option>
+                    <option value="Confirmed">Confirmed</option>
+                    <option value="InProgress">In Progress</option>
+                    <option value="Completed">Completed</option>
+                    <option value="Cancelled">Cancelled</option>
+                </select>
                 <span asp-validation-for="Booking.Status" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -52,5 +59,7 @@
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

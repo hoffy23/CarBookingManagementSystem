@@ -14,8 +14,10 @@ namespace HelloWorldRazor.Models
         [Required]
         [EmailAddress]
         public required string Email { get; set; }
-        [Required]
-        [Phone]
+
+        [Required(ErrorMessage = "Mobile number is required")]
+        [RegularExpression(@"^04\d{8}$", ErrorMessage = "Mobile number must start with 04 and be exactly 10 digits")]
+        [Display(Name = "Mobile Number")]
         public required string MobileNum { get; set; }
 
         // Address details

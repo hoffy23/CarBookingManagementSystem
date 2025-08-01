@@ -21,6 +21,7 @@ namespace HelloWorldRazor.Models
         [ForeignKey("AssetId")]
         public Asset Asset { get; set; } = null!;
 
+        [Required]
         public int LocationId { get; set; }
         [ForeignKey("LocationId")]
         public Location Location { get; set; } = null!;
