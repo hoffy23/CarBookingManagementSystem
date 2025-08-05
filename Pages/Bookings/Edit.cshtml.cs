@@ -6,16 +6,16 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using HelloWorldRazor.Data;
-using HelloWorldRazor.Models;
+using CarBookingManagementSystem.Data;
+using CarBookingManagementSystem.Models;
 
-namespace HelloWorldRazor.Pages.Bookings
+namespace CarBookingManagementSystem.Pages.Bookings
 {
     public class EditModel : PageModel
     {
-        private readonly HelloWorldRazor.Data.HelloWorldRazorContext _context;
+        private readonly CarBookingManagementSystem.Data.CarBookingManagementSystemContext _context;
 
-        public EditModel(HelloWorldRazor.Data.HelloWorldRazorContext context)
+        public EditModel(CarBookingManagementSystem.Data.CarBookingManagementSystemContext context)
         {
             _context = context;
         }
@@ -30,15 +30,15 @@ namespace HelloWorldRazor.Pages.Bookings
                 return NotFound();
             }
 
-            var booking =  await _context.Booking.FirstOrDefaultAsync(m => m.Id == id);
+            var booking = await _context.Booking.FirstOrDefaultAsync(m => m.Id == id);
             if (booking == null)
             {
                 return NotFound();
             }
             Booking = booking;
-           ViewData["AssetId"] = new SelectList(_context.Asset, "Id", "Make");
-           ViewData["CustomerId"] = new SelectList(_context.Set<Customer>(), "Id", "Address");
-           ViewData["LocationId"] = new SelectList(_context.Set<Location>(), "Id", "Address");
+            ViewData["VehicleId"] = new SelectList(_context.Vehicle, "Id", "Make");
+            ViewData["CustomerId"] = new SelectList(_context.Set<Customer>(), "Id", "Address");
+            ViewData["LocationId"] = new SelectList(_context.Set<Location>(), "Id", "Address");
             return Page();
         }
 

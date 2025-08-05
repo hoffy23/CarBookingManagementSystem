@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace HelloWorldRazor.Models
+namespace CarBookingManagementSystem.Models
 {
     public enum States
     {

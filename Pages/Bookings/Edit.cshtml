@@ -1,5 +1,5 @@
 @page
-@model HelloWorldRazor.Pages.Bookings.EditModel
+@model CarBookingManagementSystem.Pages.Bookings.EditModel
 
 @{
     ViewData["Title"] = "Edit";
@@ -15,37 +15,37 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Booking.Id" />
             <div class="form-group">
-                
+
                 <label asp-for="Booking.CustomerId" class="control-label"></label>
                 <select asp-for="Booking.CustomerId" class="form-control" asp-items="ViewBag.CustomerId"></select>
                 <span asp-validation-for="Booking.CustomerId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                
-                <label asp-for="Booking.AssetId" class="control-label"></label>
-                <select asp-for="Booking.AssetId" class="form-control" asp-items="ViewBag.AssetId"></select>
-                <span asp-validation-for="Booking.AssetId" class="text-danger"></span>
+
+                <label asp-for="Booking.VehicleId" class="control-label"></label>
+                <select asp-for="Booking.VehicleId" class="form-control" asp-items="ViewBag.VehicleId"></select>
+                <span asp-validation-for="Booking.VehicleId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                
+
                 <label asp-for="Booking.LocationId" class="control-label"></label>
                 <select asp-for="Booking.LocationId" class="form-control" asp-items="ViewBag.LocationId"></select>
                 <span asp-validation-for="Booking.LocationId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                
+
                 <label asp-for="Booking.CheckOut" class="control-label"></label>
                 <input asp-for="Booking.CheckOut" class="form-control" />
                 <span asp-validation-for="Booking.CheckOut" class="text-danger"></span>
             </div>
             <div class="form-group">
-                
+
                 <label asp-for="Booking.DueIn" class="control-label"></label>
                 <input asp-for="Booking.DueIn" class="form-control" />
                 <span asp-validation-for="Booking.DueIn" class="text-danger"></span>
             </div>
             <div class="form-group">
-                
+
                 <label asp-for="Booking.Status" class="control-label"></label>
                 <select asp-for="Booking.Status" class="form-control"></select>
                 <span asp-validation-for="Booking.Status" class="text-danger"></span>
@@ -62,5 +62,7 @@
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

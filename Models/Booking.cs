@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace HelloWorldRazor.Models
+namespace CarBookingManagementSystem.Models
 {
     public enum BookingStatus
     {
@@ -17,9 +17,9 @@ namespace HelloWorldRazor.Models
         [ForeignKey("CustomerId")]
         public Customer Customer { get; set; } = null!;
 
-        public int AssetId { get; set; }
-        [ForeignKey("AssetId")]
-        public Asset Asset { get; set; } = null!;
+        public int VehicleId { get; set; }
+        [ForeignKey("VehicleId")]
+        public Vehicle Vehicle { get; set; } = null!;
 
         [Required]
         public int LocationId { get; set; }

@@ -5,16 +5,16 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using HelloWorldRazor.Data;
-using HelloWorldRazor.Models;
+using CarBookingManagementSystem.Data;
+using CarBookingManagementSystem.Models;
 
-namespace HelloWorldRazor.Pages.Locations
+namespace CarBookingManagementSystem.Pages.Locations
 {
     public class DetailsModel : PageModel
     {
-        private readonly HelloWorldRazor.Data.HelloWorldRazorContext _context;
+        private readonly CarBookingManagementSystem.Data.CarBookingManagementSystemContext _context;
 
-        public DetailsModel(HelloWorldRazor.Data.HelloWorldRazorContext context)
+        public DetailsModel(CarBookingManagementSystem.Data.CarBookingManagementSystemContext context)
         {
             _context = context;
         }

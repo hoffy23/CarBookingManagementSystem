@@ -5,25 +5,25 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using HelloWorldRazor.Data;
-using HelloWorldRazor.Models;
+using CarBookingManagementSystem.Data;
+using CarBookingManagementSystem.Models;
 
-namespace HelloWorldRazor.Pages.Bookings
+namespace CarBookingManagementSystem.Pages.Bookings
 {
     public class CreateModel : PageModel
     {
-        private readonly HelloWorldRazor.Data.HelloWorldRazorContext _context;
+        private readonly CarBookingManagementSystem.Data.CarBookingManagementSystemContext _context;
 
-        public CreateModel(HelloWorldRazor.Data.HelloWorldRazorContext context)
+        public CreateModel(CarBookingManagementSystem.Data.CarBookingManagementSystemContext context)
         {
             _context = context;
         }
 
         public IActionResult OnGet()
         {
-        ViewData["AssetId"] = new SelectList(_context.Asset, "Id", "Make");
-        ViewData["CustomerId"] = new SelectList(_context.Set<Customer>(), "Id", "Address");
-        ViewData["LocationId"] = new SelectList(_context.Set<Location>(), "Id", "Address");
+            ViewData["VehicleId"] = new SelectList(_context.Vehicle, "Id", "Make");
+            ViewData["CustomerId"] = new SelectList(_context.Set<Customer>(), "Id", "Address");
+            ViewData["LocationId"] = new SelectList(_context.Set<Location>(), "Id", "Address");
             return Page();
         }
 

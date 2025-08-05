@@ -6,22 +6,22 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using HelloWorldRazor.Data;
-using HelloWorldRazor.Models;
+using CarBookingManagementSystem.Data;
+using CarBookingManagementSystem.Models;
 
-namespace HelloWorldRazor.Pages.Assets
+namespace CarBookingManagementSystem.Pages.Vehicles
 {
     public class EditModel : PageModel
     {
-        private readonly HelloWorldRazor.Data.HelloWorldRazorContext _context;
+        private readonly CarBookingManagementSystem.Data.CarBookingManagementSystemContext _context;
 
-        public EditModel(HelloWorldRazor.Data.HelloWorldRazorContext context)
+        public EditModel(CarBookingManagementSystem.Data.CarBookingManagementSystemContext context)
         {
             _context = context;
         }
 
         [BindProperty]
-        public Models.Asset Asset { get; set; } = default!;
+        public Models.Vehicle Vehicle { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -30,12 +30,12 @@ namespace HelloWorldRazor.Pages.Assets
                 return NotFound();
             }
 
-            var asset = await _context.Asset.FirstOrDefaultAsync(m => m.Id == id);
-            if (asset == null)
+            var Vehicle = await _context.Vehicle.FirstOrDefaultAsync(m => m.Id == id);
+            if (Vehicle == null)
             {
                 return NotFound();
             }
-            Asset = asset;
+            Vehicle = Vehicle;
             return Page();
         }
 
@@ -48,7 +48,7 @@ namespace HelloWorldRazor.Pages.Assets
                 return Page();
             }
 
-            _context.Attach(Asset).State = EntityState.Modified;
+            _context.Attach(Vehicle).State = EntityState.Modified;
 
             try
             {
@@ -56,7 +56,7 @@ namespace HelloWorldRazor.Pages.Assets
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!AssetExists(Asset.Id))
+                if (!VehicleExists(Vehicle.Id))
                 {
                     return NotFound();
                 }
@@ -69,9 +69,9 @@ namespace HelloWorldRazor.Pages.Assets
             return RedirectToPage("./Index");
         }
 
-        private bool AssetExists(int id)
+        private bool VehicleExists(int id)
         {
-            return _context.Asset.Any(e => e.Id == id);
+            return _context.Vehicle.Any(e => e.Id == id);
         }
     }
 }

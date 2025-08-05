@@ -6,16 +6,16 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using HelloWorldRazor.Data;
-using HelloWorldRazor.Models;
+using CarBookingManagementSystem.Data;
+using CarBookingManagementSystem.Models;
 
-namespace HelloWorldRazor.Pages.Locations
+namespace CarBookingManagementSystem.Pages.Locations
 {
     public class EditModel : PageModel
     {
-        private readonly HelloWorldRazor.Data.HelloWorldRazorContext _context;
+        private readonly CarBookingManagementSystem.Data.CarBookingManagementSystemContext _context;
 
-        public EditModel(HelloWorldRazor.Data.HelloWorldRazorContext context)
+        public EditModel(CarBookingManagementSystem.Data.CarBookingManagementSystemContext context)
         {
             _context = context;
         }
@@ -30,7 +30,7 @@ namespace HelloWorldRazor.Pages.Locations
                 return NotFound();
             }
 
-            var location =  await _context.Location.FirstOrDefaultAsync(m => m.Id == id);
+            var location = await _context.Location.FirstOrDefaultAsync(m => m.Id == id);
             if (location == null)
             {
                 return NotFound();

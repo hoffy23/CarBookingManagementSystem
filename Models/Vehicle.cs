@@ -1,8 +1,8 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace HelloWorldRazor.Models
+namespace CarBookingManagementSystem.Models
 {
-    public class Asset
+    public class Vehicle
     {
         [Key]
         public int Id { get; set; }

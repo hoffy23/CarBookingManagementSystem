@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using CarBookingManagementSystem.Data;
 using CarBookingManagementSystem.Models;
 
-namespace CarBookingManagementSystem.Pages.Customers
+namespace CarBookingManagementSystem.Pages.Vehicles
 {
     public class IndexModel : PageModel
     {
@@ -19,11 +19,11 @@ namespace CarBookingManagementSystem.Pages.Customers
             _context = context;
         }
 
-        public IList<Customer> Customer { get; set; } = default!;
+        public IList<Models.Vehicle> Vehicle { get; set; } = default!;
 
         public async Task OnGetAsync()
         {
-            Customer = await _context.Customer.ToListAsync();
+            Vehicle = await _context.Vehicle.ToListAsync();
         }
     }
 }

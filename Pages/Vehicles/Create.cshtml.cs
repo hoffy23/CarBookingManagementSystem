@@ -5,16 +5,16 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using HelloWorldRazor.Data;
-using HelloWorldRazor.Models;
+using CarBookingManagementSystem.Data;
+using CarBookingManagementSystem.Models;
 
-namespace HelloWorldRazor.Pages.Assets
+namespace CarBookingManagementSystem.Pages.Vehicles
 {
     public class CreateModel : PageModel
     {
-        private readonly HelloWorldRazor.Data.HelloWorldRazorContext _context;
+        private readonly CarBookingManagementSystem.Data.CarBookingManagementSystemContext _context;
 
-        public CreateModel(HelloWorldRazor.Data.HelloWorldRazorContext context)
+        public CreateModel(CarBookingManagementSystem.Data.CarBookingManagementSystemContext context)
         {
             _context = context;
         }
@@ -25,7 +25,7 @@ namespace HelloWorldRazor.Pages.Assets
         }
 
         [BindProperty]
-        public Models.Asset Asset { get; set; } = default!;
+        public Models.Vehicle Vehicle { get; set; } = default!;
 
         // For more information, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
@@ -35,7 +35,7 @@ namespace HelloWorldRazor.Pages.Assets
                 return Page();
             }
 
-            _context.Asset.Add(Asset);
+            _context.Vehicle.Add(Vehicle);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

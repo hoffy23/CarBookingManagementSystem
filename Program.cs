@@ -1,18 +1,18 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using HelloWorldRazor.Data;
+using CarBookingManagementSystem.Data;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 if (builder.Environment.IsDevelopment())
 {
-    builder.Services.AddDbContext<HelloWorldRazorContext>(options =>
-        options.UseSqlite(builder.Configuration.GetConnectionString("HelloWorldRazorContext")));
+    builder.Services.AddDbContext<CarBookingManagementSystemContext>(options =>
+        options.UseSqlite(builder.Configuration.GetConnectionString("CarBookingManagementSystemContext")));
 }
 else
 {
-    builder.Services.AddDbContext<HelloWorldRazorContext>(options =>
+    builder.Services.AddDbContext<CarBookingManagementSystemContext>(options =>
         options.UseSqlServer(builder.Configuration.GetConnectionString("ProductionRazorContext")));
 }
 

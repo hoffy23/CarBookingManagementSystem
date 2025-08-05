@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace HelloWorldRazor.Pages;
+namespace CarBookingManagementSystem.Pages;
 
 public class PrivacyModel : PageModel
 {

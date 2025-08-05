@@ -1,5 +1,5 @@
 @page
-@model HelloWorldRazor.Pages.Assets.IndexModel
+@model CarBookingManagementSystem.Pages.Vehicles.IndexModel
 
 @{
     ViewData["Title"] = "Index";
@@ -14,28 +14,28 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Asset[0].Make)
+                @Html.DisplayNameFor(model => model.Vehicle[0].Make)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Asset[0].Model)
+                @Html.DisplayNameFor(model => model.Vehicle[0].Model)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Asset[0].OdometerKm)
+                @Html.DisplayNameFor(model => model.Vehicle[0].OdometerKm)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Asset[0].Year)
+                @Html.DisplayNameFor(model => model.Vehicle[0].Year)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Asset[0].State)
+                @Html.DisplayNameFor(model => model.Vehicle[0].State)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Asset[0].NumberPlate)
+                @Html.DisplayNameFor(model => model.Vehicle[0].NumberPlate)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model.Asset)
+        @foreach (var item in Model.Vehicle)
         {
             <tr>
                 <td>
